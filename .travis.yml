@@ -1,0 +1,26 @@
+os: osx
+osx_image: xcode10.2
+language: bash
+
+git:
+  depth: false
+  
+before_cache:
+  - brew cleanup
+cache:
+  - directories:
+    - $HOME/library/Caches/Homebrew
+    
+install:
+    - whoami
+    - echo "start of pipeline"
+    - HOMEBREW_NO_AUTO_UPDATE=1
+    
+script:
+    - ls
+    - chmod +x hello.sh
+    - ./hello.sh
+    
+after_script:
+    - echo "End of pipeline"
+    
